@@ -15,8 +15,12 @@
   "api": {
     "baseUrl": "https://pim.finance.gov.mv/api/v1",
     "auth": {
-      "method": "key"
-    }
+      "method": "bearer"
+    },
+    "playground": {
+      "mode": "simple"
+    },
+    "openapi": "/api-reference/openapi.json"
   },
   "navigation": {
     "groups": [

@@ -1,54 +1,27 @@
 ---
 title: 'List Atolls'
-description: 'Retrieve a list of all atolls'
+openapi: 'GET /api/v1/atolls'
 ---
 
-# List Atolls
+Returns a list of all atolls with their capital islands and locations.
 
-Retrieve a list of all atolls with their capital islands and locations.
+### Query Parameters
 
-## API Request
+<ParamField query="limit" type="integer">
+  The maximum number of results to return
+</ParamField>
 
-<Card title="GET All Atolls" icon="map-location-dot">
-  ```bash
-  GET /api/v1/atolls
-  ```
-</Card>
+### Response
 
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="array">
+<ResponseField name="data" type="array" required>
   Array of atoll objects
-  <Expandable title="Properties">
-    <ResponseField name="code" type="string">
-      Atoll code (e.g., "HA")
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Atoll name in English
-    </ResponseField>
-    <ResponseField name="name_dv" type="string">
-      Atoll name in Dhivehi
-    </ResponseField>
-    <ResponseField name="location_id" type="string">
-      Location identifier
-    </ResponseField>
-    <ResponseField name="capital_island" type="object">
-      Capital island information
-      <Expandable title="Properties">
-        <ResponseField name="atoll_code" type="string">Atoll code</ResponseField>
-        <ResponseField name="name" type="string">Island name in English</ResponseField>
-        <ResponseField name="name_dv" type="string">Island name in Dhivehi</ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
@@ -67,10 +40,4 @@ Retrieve a list of all atolls with their capital islands and locations.
   ]
 }
 ```
-
-## Usage Notes
-
-- This endpoint returns all atolls without pagination
-- Each atoll includes information about its capital island
-- Use atoll codes when filtering other resources by atoll
-- Location IDs can be used to reference locations in other endpoints 
+</ResponseExample> 
