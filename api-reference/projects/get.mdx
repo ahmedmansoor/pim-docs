@@ -30,46 +30,53 @@ Returns details of a specific project.
 <ResponseExample>
 ```json
 {
-  "success": true,
-  "data": {
-    "id": "123",
-    "title": "Harbor Development Project",
-    "description": "Development of harbor facilities",
-    "status": "ongoing",
-    "location": {
-      "atoll_code": "HA",
-      "island_name": "Dhidhdhoo",
-      "island_name_dv": "ދިއްދޫ"
+    "success": true,
+    "data": {
+        "uuid": "123",
+        "name": "Coastal Protection - ADh.Hangnaameedhoo",
+        "name_dv": null,
+        "function": "Coastal protection",
+        "agency": {
+            "name": "High Commission of the Republic of Maldives in the Republic of India",
+            "name_dv": "އިންޑިޔާގައި ހުންނަ ދިވެހިރާއްޖޭގެ ހައިކޮމިޝަން"
+        },
+        "project": {
+            "description": "Coastal Protection - ADh.Hangnaameedhoo",
+            "start_date": "1000-01-01T00:00:00.000000Z",
+            "end_date": null,
+            "locations": []
+        },
+        "status": {
+            "name": "Planned",
+            "slug": "planned",
+            "color": "#4f39f6"
+        },
+        "contracts": [
+            {
+                "uuid": "61f6ab92-3d2a-4d00-b131-22d38c16fbff",
+                "contract_number": "CNT-61f6ab92",
+                "contract_name": "NEW CONTRACT (PLACEHOLDER)",
+                "contract_name_dv": null,
+                "vendor": null,
+                "current_scope": null,
+                "current_scope_dv": null,
+                "status": "Procurement Stage",
+                "current_contract_value": "0.00",
+                "physical_progress_percentage": "0.00",
+                "financial_progress_percentage": "0.00",
+                "commencement_date": null,
+                "scheduled_completion_date": null,
+                "actual_completion_date": null,
+                "project_schedules": []
+            }
+        ],
+        "phases": [],
+        "total_contracted_amount": 0,
+        "total_claimed_amount": 0,
+        "overall_physical_progress_percent": 0,
+        "overall_financial_progress_percent": 0
     },
-    "budget": {
-      "amount": 1500000,
-      "currency": "MVR"
-    },
-    "progress": {
-      "physical": 45,
-      "financial": 40
-    },
-    "dates": {
-      "start": "2023-01-01",
-      "estimated_completion": "2024-01-01"
-    },
-    "contracts": [
-      {
-        "id": "456",
-        "title": "Harbor Construction Phase 1",
-        "status": "active",
-        "value": {
-          "amount": 750000,
-          "currency": "MVR"
-        }
-      }
-    ],
-    "implementing_agency": {
-      "id": "789",
-      "name": "Ministry of National Planning",
-      "name_dv": "ނޭޝަނަލް ޕްލޭނިންގ މިނިސްޓްރީ"
-    }
-  }
+    "message": "Project details retrieved successfully."
 }
 ```
 </ResponseExample> 
