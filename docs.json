@@ -20,7 +20,7 @@
     "playground": {
       "mode": "simple"
     },
-    "openapi": "/api-reference/openapi.json"
+    "api": "/api-reference/api.json"
   },
   "navigation": {
     "groups": [
