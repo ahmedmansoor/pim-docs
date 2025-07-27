@@ -5,15 +5,11 @@ api: 'GET /api/v1/contracts/{id}'
 
 Returns details of a specific contract.
 
-<RequestExample>
-  <Snippet path="/api/v1/contracts/{id}" method="get">
-    ```bash {{ title: 'cURL' }}
-    curl --request GET \
-      --url https://pim.finance.gov.mv/api/v1/contracts/123 \
-      --header 'Authorization: Bearer <token>'
-    ```
-  </Snippet>
-</RequestExample>
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
 
 ### Path Parameters
 
@@ -36,43 +32,47 @@ Returns details of a specific contract.
 {
   "success": true,
   "data": {
-    "id": "123",
-    "title": "Harbor Development Contract",
-    "description": "Contract for development of harbor facilities",
-    "status": "active",
+    "uuid": "3c750837-ee1d-4810-bcb2-3bf70183735c",
+    "contract_number": "102245",
+    "contract_name": "School Building and Development",
+    "contract_name_dv": null,
+    "current_scope": "Changed to 700 people capacity",
+    "current_scope_dv": null,
+    "status": "Retention Stage",
+    "current_contract_value": "1000000.00",
+    "physical_progress_percentage": "1.05",
+    "financial_progress_percentage": "0.95",
+    "commencement_date": "2025-01-12T00:00:00.000000Z",
+    "scheduled_completion_date": "2027-10-07T00:00:00.000000Z",
+    "actual_completion_date": null,
     "initiative": {
-      "id": "456",
-      "title": "Harbor Development Project"
+      "uuid": "dd8c34c0-cfdf-4d93-9547-f86281eb118e",
+      "name_english": "Const. of MNU Student Accommodation Block - GDh.Thinadhoo",
+      "name_dhivehi": null,
+      "location": {
+        "code": "Q10",
+        "name": "GDh. Thinadhoo",
+        "island_code": "LD0717",
+        "atoll_code": "GDh"
+      }
     },
-    "contractor": {
-      "id": "789",
-      "name": "Construction Co Ltd",
-      "registration_number": "C-1234/2020"
-    },
-    "value": {
-      "amount": 1500000,
-      "currency": "MVR"
-    },
-    "dates": {
-      "start": "2023-01-01",
-      "end": "2024-01-01"
-    },
-    "progress": {
-      "physical": 45,
-      "financial": 40
-    },
-    "schedules": [
+    "project_schedules": [
       {
-        "title": "Foundation Work",
-        "progress": 100,
-        "start_date": "2023-01-01",
-        "end_date": "2023-03-01"
-      },
-      {
-        "title": "Structure Work",
-        "progress": 50,
-        "start_date": "2023-03-02",
-        "end_date": "2023-08-01"
+        "actual_start_date": null,
+        "actual_end_date": null,
+        "scheduled_works": [
+          {
+            "title": "Site Management, Mobilisation & demobilisation, Site preparation",
+            "title_dv": null,
+            "description": null,
+            "description_dv": null,
+            "actual_start_date": null,
+            "actual_end_date": null,
+            "amount": "40.00",
+            "physical_progress_percentage": "0.00",
+            "financial_progress_percentage": "0.00"
+          }
+        ]
       }
     ]
   }

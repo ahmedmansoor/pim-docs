@@ -5,6 +5,12 @@ api: 'GET /api/v1/atolls/{code}'
 
 Returns details of a specific atoll by its code.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Path Parameters
 
 <ParamField path="code" type="string" required>
@@ -34,7 +40,14 @@ Returns details of a specific atoll by its code.
       "atoll_code": "HA",
       "name": "Dhiddhoo",
       "name_dv": "ދިއްދޫ"
-    }
+    },
+    "islands": [
+      {
+        "atoll_code": "HA",
+        "name": "Thuraakunu",
+        "name_dv": "ތުރާކުނު"
+      }
+    ]
   }
 }
 ```

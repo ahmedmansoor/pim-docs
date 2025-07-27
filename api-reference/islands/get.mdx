@@ -5,6 +5,12 @@ api: 'GET /api/v1/islands/{id}'
 
 Returns details of a specific island.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Path Parameters
 
 <ParamField path="id" type="string" required>
@@ -26,16 +32,16 @@ Returns details of a specific island.
 {
   "success": true,
   "data": {
-    "id": "123",
-    "name": "Dhidhdhoo",
-    "name_dv": "ދިއްދޫ",
     "atoll_code": "HA",
+    "code": "LD0101",
+    "name": "Thuraakunu",
+    "name_dv": "ތުރާކުނު",
     "location_id": "A01",
-    "is_capital": true,
     "atoll": {
       "code": "HA",
       "name": "Haa Alif Atoll",
-      "name_dv": "ހއ އަތޮޅު"
+      "name_dv": "ހއ އަތޮޅު",
+      "location_id": "A00"
     }
   }
 }

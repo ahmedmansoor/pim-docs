@@ -5,6 +5,12 @@ api: 'GET /api/v1/constituencies/{id}'
 
 Returns details of a specific constituency.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Path Parameters
 
 <ParamField path="id" type="string" required>
@@ -26,17 +32,15 @@ Returns details of a specific constituency.
 {
   "success": true,
   "data": {
-    "id": "123",
-    "name": "Dhidhdhoo",
-    "name_dv": "ދިއްދޫ",
-    "atoll_code": "HA",
-    "location_id": "A01",
+    "uuid": "123",
+    "code": "A02",
+    "name": "Ihavandhoo Constituency",
+    "name_dv": "އިހަވަންދޫ ދާއިރާ",
     "islands": [
       {
-        "id": "456",
-        "name": "Dhidhdhoo",
-        "name_dv": "ދިއްދޫ",
-        "atoll_code": "HA"
+        "atoll_code": "HA",
+        "name": "Ihavandhoo",
+        "name_dv": "އިހަވަންދޫ"
       }
     ]
   }

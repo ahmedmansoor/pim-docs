@@ -5,6 +5,12 @@ api: 'GET /api/v1/constituencies'
 
 Returns a list of all constituencies.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Query Parameters
 
 <ParamField query="limit" type="integer">
@@ -27,13 +33,21 @@ Returns a list of all constituencies.
   "success": true,
   "data": [
     {
-      "id": "123",
-      "name": "Dhidhdhoo",
-      "name_dv": "ދިއްދޫ",
-      "atoll_code": "HA",
-      "location_id": "A01"
+      "uuid": "123",
+      "code": "A02",
+      "name": "Ihavandhoo Constituency",
+      "name_dv": "އިހަވަންދޫ ދާއިރާ",
+      "islands": [
+        {
+          "atoll_code": "HA",
+          "name": "Ihavandhoo",
+          "name_dv": "އިހަވަންދޫ"
+        }
+      ]
     }
-  ]
+  ],
+  "links": {},
+  "meta": {}
 }
 ```
 </ResponseExample> 

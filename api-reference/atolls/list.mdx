@@ -5,15 +5,11 @@ api: 'GET /api/v1/atolls'
 
 Returns a list of all atolls with their capital islands and locations.
 
-<RequestExample>
-  <Snippet path="/api/v1/atolls" method="get">
-    ```bash {{ title: 'cURL' }}
-    curl --request GET \
-      --url https://pim.finance.gov.mv/api/v1/atolls \
-      --header 'Authorization: Bearer <token>'
-    ```
-  </Snippet>
-</RequestExample>
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
 
 ### Query Parameters
 
@@ -47,7 +43,9 @@ Returns a list of all atolls with their capital islands and locations.
         "name_dv": "ދިއްދޫ"
       }
     }
-  ]
+  ],
+  "links": {},
+  "meta": {}
 }
 ```
 </ResponseExample> 

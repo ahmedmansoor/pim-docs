@@ -5,6 +5,12 @@ api: 'GET /api/v1/locations'
 
 Returns a list of all locations.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Query Parameters
 
 <ParamField query="limit" type="integer">
@@ -31,13 +37,30 @@ Returns a list of all locations.
   "success": true,
   "data": [
     {
-      "id": "A01",
-      "name": "Dhidhdhoo",
-      "name_dv": "ދިއްދޫ",
+      "code": "A00",
+      "name": "Haa Alif Atoll",
+      "type": "atoll",
+      "atoll_code": "HA",
+      "atoll_code_dv": "ހއ",
+      "atoll_name": "Haa Alif Atoll",
+      "atoll_name_dv": "ހއ އަތޮޅު",
+      "island_name": null,
+      "island_name_dv": null
+    },
+    {
+      "code": "A01",
+      "name": "Thuraakunu",
       "type": "island",
-      "atoll_code": "HA"
+      "atoll_code": "HA",
+      "atoll_code_dv": "ހއ",
+      "atoll_name": "Haa Alif Atoll",
+      "atoll_name_dv": "ހއ އަތޮޅު",
+      "island_name": "Thuraakunu",
+      "island_name_dv": "ތުރާކުނު"
     }
-  ]
+  ],
+  "links": {},
+  "meta": {}
 }
 ```
 </ResponseExample> 

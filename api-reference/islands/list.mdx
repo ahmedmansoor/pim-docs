@@ -5,6 +5,12 @@ api: 'GET /api/v1/islands'
 
 Returns a list of all islands.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Query Parameters
 
 <ParamField query="limit" type="integer">
@@ -31,14 +37,21 @@ Returns a list of all islands.
   "success": true,
   "data": [
     {
-      "id": "123",
-      "name": "Dhidhdhoo",
-      "name_dv": "ދިއްދޫ",
       "atoll_code": "HA",
+      "code": "LD0101",
+      "name": "Thuraakunu",
+      "name_dv": "ތުރާކުނު",
       "location_id": "A01",
-      "is_capital": true
+      "atoll": {
+        "code": "HA",
+        "name": "Haa Alif Atoll",
+        "name_dv": "ހއ އަތޮޅު",
+        "location_id": "A00"
+      }
     }
-  ]
+  ],
+  "links": {},
+  "meta": {}
 }
 ```
 </ResponseExample> 

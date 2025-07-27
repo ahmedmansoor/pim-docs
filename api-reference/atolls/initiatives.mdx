@@ -5,6 +5,12 @@ api: 'GET /api/v1/atolls/{code}/initiatives'
 
 Returns a list of all initiatives in a specific atoll.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Path Parameters
 
 <ParamField path="code" type="string" required>
@@ -31,32 +37,36 @@ Returns a list of all initiatives in a specific atoll.
   List of initiatives in the atoll
 </ResponseField>
 
-<ResponseField name="meta" type="object" required>
-  Pagination metadata
-</ResponseField>
-
 <ResponseExample>
 ```json
 {
   "success": true,
   "data": [
     {
-      "id": "123",
-      "title": "Harbor Development",
-      "description": "Development of harbor facilities",
-      "status": "ongoing",
+      "uuid": "123",
+      "name_english": "Harbor Development Project",
+      "name_dhivehi": "ބަނދަރު ތަރައްޤީކުރުމުގެ މަޝްރޫޢު",
+      "current_scope": "Development of harbor facilities",
+      "status": {
+        "name": "Ongoing",
+        "slug": "ongoing",
+        "color": "#059669"
+      },
       "location": {
+        "code": "A01",
+        "name": "HA. Dhidhdhoo",
         "atoll_code": "HA",
-        "island_name": "Dhiddhoo",
+        "atoll_code_dv": "ހއ",
+        "atoll_name": "Haa Alif Atoll",
+        "atoll_name_dv": "ހއ އަތޮޅު",
+        "island_code": "LD0101",
+        "island_name": "Dhidhdhoo",
         "island_name_dv": "ދިއްދޫ"
       }
     }
   ],
-  "meta": {
-    "total": 50,
-    "limit": 10,
-    "offset": 0
-  }
+  "links": {},
+  "meta": {}
 }
 ```
 </ResponseExample> 

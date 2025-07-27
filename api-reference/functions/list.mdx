@@ -5,15 +5,11 @@ api: 'GET /api/v1/functions'
 
 Returns a list of all functions.
 
-<RequestExample>
-  <Snippet path="/api/v1/functions" method="get">
-    ```bash {{ title: 'cURL' }}
-    curl --request GET \
-      --url https://pim.finance.gov.mv/api/v1/functions \
-      --header 'Authorization: Bearer <token>'
-    ```
-  </Snippet>
-</RequestExample>
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
 
 ### Query Parameters
 
@@ -37,11 +33,11 @@ Returns a list of all functions.
   "success": true,
   "data": [
     {
-      "id": "123",
-      "name": "Education",
-      "name_dv": "ތަޢުލީމު",
-      "code": "EDU",
-      "description": "Education related functions"
+      "uuid": "123",
+      "name": "Water Drainage System",
+      "name_dv": "ފެން ހިންދުމުގެ ނިޒާމް",
+      "description": "Infrastructure for managing and controlling water runoff",
+      "slug": "water-drainage-system"
     }
   ]
 }

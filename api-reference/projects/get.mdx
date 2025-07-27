@@ -5,11 +5,11 @@ api: 'GET /api/v1/projects/{id}'
 
 Returns details of a specific project.
 
-<Card title="GET Project" icon="database">
-  ```bash
-  GET /api/v1/projects/{id}
-  ```
-</Card>
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
 
 ### Path Parameters
 
@@ -30,165 +30,73 @@ Returns details of a specific project.
 <ResponseExample>
 ```json
 {
-    "success": true,
-    "data": {
-        "uuid": "dd8c34c0-cfdf-4d93-9547-f86281eb118e",
-        "name": "Const. of MNU Student Accomodation Block - GDh.Thinadhoo",
-        "name_dv": null,
-        "function": "University",
-        "agency": {
-            "name": "LH.Atoll Education Centre",
-            "name_dv": "ޅ.އަތޮޅު ތަޢުލީމީ މަރުކަޒު"
-        },
-        "project": {
-            "description": "Const. of MNU Student Accomodation Block - GDh.Thinadhoo",
-            "start_date": "1000-01-01T00:00:00.000000Z",
-            "end_date": null,
-            "locations": []
-        },
-        "status": {
-            "name": "Ongoing – On Schedule",
-            "slug": "ongoing-on-schedule",
-            "color": "#00968a"
-        },
-        "contracts": [
-            {
-                "uuid": "3c750837-ee1d-4810-bcb2-3bf70183735c",
-                "contract_number": "102245",
-                "contract_name": "School Building and Development",
-                "contract_name_dv": null,
-                "vendor": {
-                    "name": "State Trading Organization Plc"
-                },
-                "current_scope": "Changed to 700 people capacity ",
-                "current_scope_dv": null,
-                "status": "Retention Stage",
-                "current_contract_value": "1000000.00",
-                "physical_progress_percentage": "1.05",
-                "financial_progress_percentage": "0.95",
-                "commencement_date": "2025-01-12T00:00:00.000000Z",
-                "scheduled_completion_date": "2027-10-07T00:00:00.000000Z",
-                "actual_completion_date": null,
-                "project_schedules": [
-                    {
-                        "actual_start_date": null,
-                        "actual_end_date": null,
-                        "scheduled_works": [
-                            {
-                                "title": "Site Management, Mobilisation & demobilisation, Site preparation",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "40.00",
-                                "physical_progress_percentage": "0.00",
-                                "financial_progress_percentage": "0.00"
-                            },
-                            {
-                                "title": "Design and others",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "1150.00",
-                                "physical_progress_percentage": "0.00",
-                                "financial_progress_percentage": "0.00"
-                            },
-                            {
-                                "title": "Stormwater management system for new roads",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "903834.80",
-                                "physical_progress_percentage": "0.00",
-                                "financial_progress_percentage": "0.00"
-                            },
-                            {
-                                "title": "Contractual Requirements",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "94975.20",
-                                "physical_progress_percentage": "11.06",
-                                "financial_progress_percentage": "10.00"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "uuid": "79705616-03cd-4b7e-99b7-779c07444be0",
-                "contract_number": "2025/CNT/45/404",
-                "contract_name": "Design and Build Contract for the Construction of MNU Student Accommodation Block – GDh. Thinadhoo",
-                "contract_name_dv": null,
-                "vendor": {
-                    "name": "Road Development Corporation Limite"
-                },
-                "current_scope": "3 Floor building changed to 6 floors",
-                "current_scope_dv": null,
-                "status": "Contracted",
-                "current_contract_value": "52950000.00",
-                "physical_progress_percentage": "42.05",
-                "financial_progress_percentage": "0.00",
-                "commencement_date": "2025-05-29T00:00:00.000000Z",
-                "scheduled_completion_date": "2025-12-06T00:00:00.000000Z",
-                "actual_completion_date": null,
-                "project_schedules": [
-                    {
-                        "actual_start_date": null,
-                        "actual_end_date": null,
-                        "scheduled_works": [
-                            {
-                                "title": "Preliminary Works",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "0.00",
-                                "physical_progress_percentage": "20.00",
-                                "financial_progress_percentage": "0.00"
-                            },
-                            {
-                                "title": "Mobilization and Site Setup",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "2499600.00",
-                                "physical_progress_percentage": "0.00",
-                                "financial_progress_percentage": "0.00"
-                            },
-                            {
-                                "title": "Temporary Facilities (Fencing, Storage)",
-                                "title_dv": null,
-                                "description": null,
-                                "description_dv": null,
-                                "actual_start_date": null,
-                                "actual_end_date": null,
-                                "amount": "46250400.00",
-                                "physical_progress_percentage": "44.32",
-                                "financial_progress_percentage": "0.00"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "phases": [],
-        "total_contracted_amount": "151700000.00",
-        "total_claimed_amount": "4273297.51",
-        "overall_physical_progress_percent": "14.68",
-        "overall_financial_progress_percent": "0.01"
+  "success": true,
+  "data": {
+    "uuid": "dd8c34c0-cfdf-4d93-9547-f86281eb118e",
+    "name": "Const. of MNU Student Accomodation Block - GDh.Thinadhoo",
+    "name_dv": null,
+    "function": "University",
+    "agency": {
+      "name": "LH.Atoll Education Centre",
+      "name_dv": "ޅ.އަތޮޅު ތަޢުލީމީ މަރުކަޒު"
     },
-    "message": "Project details retrieved successfully."
+    "project": {
+      "description": "Const. of MNU Student Accomodation Block - GDh.Thinadhoo",
+      "start_date": "1000-01-01T00:00:00.000000Z",
+      "end_date": null,
+      "locations": []
+    },
+    "status": {
+      "name": "Ongoing – On Schedule",
+      "slug": "ongoing-on-schedule",
+      "color": "#00968a"
+    },
+    "contracts": [
+      {
+        "uuid": "3c750837-ee1d-4810-bcb2-3bf70183735c",
+        "contract_number": "102245",
+        "contract_name": "School Building and Development",
+        "contract_name_dv": null,
+        "vendor": {
+          "name": "State Trading Organization Plc"
+        },
+        "current_scope": "Changed to 700 people capacity ",
+        "current_scope_dv": null,
+        "status": "Retention Stage",
+        "current_contract_value": "1000000.00",
+        "physical_progress_percentage": "1.05",
+        "financial_progress_percentage": "0.95",
+        "commencement_date": "2025-01-12T00:00:00.000000Z",
+        "scheduled_completion_date": "2027-10-07T00:00:00.000000Z",
+        "actual_completion_date": null,
+        "project_schedules": [
+          {
+            "actual_start_date": null,
+            "actual_end_date": null,
+            "scheduled_works": [
+              {
+                "title": "Site Management, Mobilisation & demobilisation, Site preparation",
+                "title_dv": null,
+                "description": null,
+                "description_dv": null,
+                "actual_start_date": null,
+                "actual_end_date": null,
+                "amount": "40.00",
+                "physical_progress_percentage": "0.00",
+                "financial_progress_percentage": "0.00"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "phases": [],
+    "total_contracted_amount": "151700000.00",
+    "total_claimed_amount": "4273297.51",
+    "overall_physical_progress_percent": "14.68",
+    "overall_financial_progress_percent": "0.01"
+  },
+  "message": "Project details retrieved successfully."
 }
 ```
 </ResponseExample> 
