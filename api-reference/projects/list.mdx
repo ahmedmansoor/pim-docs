@@ -1,131 +1,15 @@
 ---
 title: 'List Projects'
+api: 'GET /api/v1/projects'
 ---
 
 Returns a list of all projects.
 
-```yaml GET /api/v1/projects
-paths:
-  path: /api/v1/projects
-  method: get
-  servers:
-    - url: https://pim.finance.gov.mv/api/v1
-  request:
-    security:
-      - title: bearerAuth
-        parameters:
-          header:
-            Authorization:
-              type: http
-              scheme: bearer
-    parameters:
-      query:
-        limit:
-          schema:
-            type: integer
-            description: The maximum number of results to return
-        offset:
-          schema:
-            type: integer
-            description: Number of results to skip for pagination
-        status:
-          schema:
-            type: string
-            description: Filter projects by status
-        location_id:
-          schema:
-            type: string
-            description: Filter projects by location ID
-  response:
-    '200':
-      application/json:
-        schema:
-          type: object
-          properties:
-            success:
-              type: boolean
-              required: true
-              description: Indicates if the request was successful
-            data:
-              type: array
-              required: true
-              description: List of projects
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  title:
-                    type: string
-                  description:
-                    type: string
-                  status:
-                    type: string
-                  location:
-                    type: object
-                    properties:
-                      atoll_code:
-                        type: string
-                      island_name:
-                        type: string
-                      island_name_dv:
-                        type: string
-                  budget:
-                    type: object
-                    properties:
-                      amount:
-                        type: number
-                      currency:
-                        type: string
-                  progress:
-                    type: object
-                    properties:
-                      physical:
-                        type: number
-                      financial:
-                        type: number
-            meta:
-              type: object
-              required: true
-              description: Pagination metadata
-              properties:
-                total:
-                  type: integer
-                limit:
-                  type: integer
-                offset:
-                  type: integer
-        examples:
-          success:
-            value:
-              success: true
-              data: [
-                {
-                  "id": "123",
-                  "title": "Harbor Development Project",
-                  "description": "Development of harbor facilities",
-                  "status": "ongoing",
-                  "location": {
-                    "atoll_code": "HA",
-                    "island_name": "Dhidhdhoo",
-                    "island_name_dv": "ދިއްދޫ"
-                  },
-                  "budget": {
-                    "amount": 1500000,
-                    "currency": "MVR"
-                  },
-                  "progress": {
-                    "physical": 45,
-                    "financial": 40
-                  }
-                }
-              ]
-              meta: {
-                "total": 50,
-                "limit": 10,
-                "offset": 0
-              }
-```
+<Card title="GET Projects" icon="database">
+  ```bash
+  GET /api/v1/projects
+  ```
+</Card>
 
 ### Query Parameters
 
