@@ -1,0 +1,104 @@
+---
+title: 'List Locations'
+description: 'Retrieve a list of all locations (atolls and islands)'
+---
+
+# List Locations
+
+Get a comprehensive list of all locations, including both atolls and islands.
+
+## API Request
+
+<Card title="GET All Locations" icon="map-location-dot">
+  ```bash
+  GET /api/v1/locations
+  ```
+</Card>
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="array">
+  Array of location objects
+  <Expandable title="Properties">
+    <ResponseField name="code" type="string">
+      Location code
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Location name
+    </ResponseField>
+    <ResponseField name="type" type="string">
+      Location type ("atoll" or "island")
+    </ResponseField>
+    <ResponseField name="atoll_code" type="string">
+      Atoll code (e.g., "HA")
+    </ResponseField>
+    <ResponseField name="atoll_code_dv" type="string">
+      Atoll code in Dhivehi
+    </ResponseField>
+    <ResponseField name="atoll_name" type="string">
+      Atoll name in English
+    </ResponseField>
+    <ResponseField name="atoll_name_dv" type="string">
+      Atoll name in Dhivehi
+    </ResponseField>
+    <ResponseField name="island_name" type="string">
+      Island name in English (null for atoll type)
+    </ResponseField>
+    <ResponseField name="island_name_dv" type="string">
+      Island name in Dhivehi (null for atoll type)
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "code": "A00",
+      "name": "Haa Alif Atoll",
+      "type": "atoll",
+      "atoll_code": "HA",
+      "atoll_code_dv": "ހއ",
+      "atoll_name": "Haa Alif Atoll",
+      "atoll_name_dv": "ހއ އަތޮޅު",
+      "island_name": null,
+      "island_name_dv": null
+    },
+    {
+      "code": "A01",
+      "name": "Thuraakunu",
+      "type": "island",
+      "atoll_code": "HA",
+      "atoll_code_dv": "ހއ",
+      "atoll_name": "Haa Alif Atoll",
+      "atoll_name_dv": "ހއ އަތޮޅު",
+      "island_name": "Thuraakunu",
+      "island_name_dv": "ތުރާކުނު"
+    }
+  ]
+}
+```
+
+## Usage Notes
+
+- This endpoint returns all locations without pagination
+- Each location is identified as either an "atoll" or "island" type
+- For atoll type locations, island_name and island_name_dv will be null
+- Location codes follow a consistent format:
+  - Atolls: X00 (e.g., "A00", "B00")
+  - Islands: X## (e.g., "A01", "B02")
+- All names are provided in both English and Dhivehi when available
+
+## Common Use Cases
+
+1. **Location Directory**: Create a comprehensive directory of all locations in the Maldives
+2. **Location Code Reference**: Map between location codes and names
+3. **Hierarchical View**: Build a hierarchical view of atolls and their islands
+4. **Multilingual Support**: Display location names in both English and Dhivehi 

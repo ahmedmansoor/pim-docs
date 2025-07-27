@@ -1,0 +1,63 @@
+---
+title: 'List Initiative Functions'
+description: 'Retrieve a list of all initiative functions'
+---
+
+# List Initiative Functions
+
+Retrieve a list of all available initiative functions.
+
+## API Request
+
+<Card title="GET All Initiative Functions" icon="list-check">
+  ```bash
+  GET /api/v1/initiative-functions
+  ```
+</Card>
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="array">
+  Array of initiative function objects
+  <Expandable title="Properties">
+    <ResponseField name="name" type="string">
+      Name of the initiative function
+    </ResponseField>
+    <ResponseField name="description" type="string">
+      Description of the initiative function
+    </ResponseField>
+    <ResponseField name="slug" type="string">
+      Unique identifier slug for the function
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "name": "Water Drainage System",
+      "description": "Infrastructure for managing and controlling water runoff",
+      "slug": "water-drainage-system"
+    },
+    {
+      "name": "Port",
+      "description": "Maritime facilities",
+      "slug": "port"
+    }
+  ]
+}
+```
+
+## Usage Notes
+
+- This endpoint returns all available initiative functions without pagination
+- Functions are identified by their unique slugs which are used in other API endpoints
+- Use these function slugs when filtering projects by function type 

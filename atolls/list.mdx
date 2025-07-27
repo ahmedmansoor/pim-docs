@@ -1,0 +1,76 @@
+---
+title: 'List Atolls'
+description: 'Retrieve a list of all atolls'
+---
+
+# List Atolls
+
+Retrieve a list of all atolls with their capital islands and locations.
+
+## API Request
+
+<Card title="GET All Atolls" icon="map-location-dot">
+  ```bash
+  GET /api/v1/atolls
+  ```
+</Card>
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="array">
+  Array of atoll objects
+  <Expandable title="Properties">
+    <ResponseField name="code" type="string">
+      Atoll code (e.g., "HA")
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Atoll name in English
+    </ResponseField>
+    <ResponseField name="name_dv" type="string">
+      Atoll name in Dhivehi
+    </ResponseField>
+    <ResponseField name="location_id" type="string">
+      Location identifier
+    </ResponseField>
+    <ResponseField name="capital_island" type="object">
+      Capital island information
+      <Expandable title="Properties">
+        <ResponseField name="atoll_code" type="string">Atoll code</ResponseField>
+        <ResponseField name="name" type="string">Island name in English</ResponseField>
+        <ResponseField name="name_dv" type="string">Island name in Dhivehi</ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "code": "HA",
+      "name": "Haa Alif Atoll",
+      "name_dv": "ހއ އަތޮޅު",
+      "location_id": "A00",
+      "capital_island": {
+        "atoll_code": "HA",
+        "name": "Dhiddhoo",
+        "name_dv": "ދިއްދޫ"
+      }
+    }
+  ]
+}
+```
+
+## Usage Notes
+
+- This endpoint returns all atolls without pagination
+- Each atoll includes information about its capital island
+- Use atoll codes when filtering other resources by atoll
+- Location IDs can be used to reference locations in other endpoints 

@@ -1,0 +1,86 @@
+---
+title: 'Introduction'
+description: 'Welcome to the PIM API Documentation'
+---
+
+# PIM API Documentation
+
+The PIM (Public Investment Management) API enables users to interact with the Public Investment Management system. Users can retrieve project details, monitor progress, and manage related data through RESTful endpoints.
+
+## Base URL
+
+All API requests should be made to:
+
+```bash
+https://pim.finance.gov.mv/api/v1
+```
+
+## Authentication
+
+PIM API requires an API key for authentication. Include the API key in the Authorization header for all requests:
+
+```bash
+Authorization: [api-key]
+```
+
+## Error Handling
+
+The API returns standard HTTP status codes to indicate success or failure of requests:
+
+- `2xx` - Success
+- `4xx` - Client error (invalid request)
+- `5xx` - Server error
+
+## Available Resources
+
+<CardGroup>
+
+<Card title="Projects" icon="building">
+  Retrieve and manage project information, including details, status, and progress.
+</Card>
+
+<Card title="Initiative Functions" icon="list-check">
+  Access and manage different types of initiatives and their functions.
+</Card>
+
+<Card title="Contracts" icon="file-contract">
+  Handle contract information, including details, schedules, and progress.
+</Card>
+
+<Card title="Locations" icon="map-location-dot">
+  Work with geographical data including constituencies, atolls, and islands.
+</Card>
+
+</CardGroup>
+
+## Common Parameters
+
+Many endpoints support pagination through these query parameters:
+
+| Parameter | Type    | Description                     | Default | Range      |
+|-----------|---------|--------------------------------|---------|------------|
+| page      | Integer | The page number to retrieve    | 1       | > 0        |
+| per_page  | Integer | Number of items per page       | 20      | 1 - 50     |
+
+## Response Format
+
+All responses follow a consistent format:
+
+```json
+{
+  "success": true,
+  "data": [...],
+  "links": {...},
+  "meta": {...}
+}
+```
+
+## Getting Started
+
+To start using the API:
+
+1. Obtain your API key
+2. Make your first request using the API key in the Authorization header
+3. Explore the available endpoints in the documentation
+
+Choose a section from the navigation menu to learn more about specific endpoints and features. 

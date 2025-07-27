@@ -1,0 +1,132 @@
+---
+title: 'List Projects'
+description: 'Retrieve a paginated list of all projects'
+---
+
+# List Projects
+
+Retrieve a paginated list of all projects, sorted by name.
+
+## API Request
+
+<Card title="GET All Projects" icon="building">
+  ```bash
+  GET /api/v1/initiatives/projects
+  ```
+</Card>
+
+## Query Parameters
+
+| Parameter | Type | Description | Required | Default | Possible Values |
+|-----------|------|-------------|----------|---------|-----------------|
+| implementing_agency | String | The unique identifier of the implementing agency (UUID) | No | None | Valid agency UUID |
+| locations | String | Location code(s) to filter | No | None | Single: "A01", "A02"<br/>Multiple: "A01,T01,T02" |
+| functions | String | Initiative function(s) to filter by | No | None | Single: "water-drainage-system"<br/>Multiple: "water-drainage-system,port" |
+| page | Integer | The page number to retrieve | No | 1 | Any positive integer |
+| per_page | Integer | The number of items per page | No | 20 | Min: 1, Max: 50 |
+
+## Example Requests
+
+### Filter by Single Location
+```bash
+GET /initiatives/projects?locations=A01
+```
+
+### Filter by Multiple Locations
+```bash
+GET /initiatives/projects?locations=A01,A02,A03
+```
+
+### Set Items Per Page
+```bash
+GET /initiatives/projects?per_page=20
+```
+
+### Combined Filters with Pagination
+```bash
+GET /initiatives/projects?locations=A01,T01&functions=water-drainage-system,port&per_page=20&page=1
+```
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="array">
+  Array of project objects
+  <Expandable title="Properties">
+    <ResponseField name="uuid" type="string">
+      Unique identifier for the project
+    </ResponseField>
+    <ResponseField name="name_english" type="string">
+      Project name in English
+    </ResponseField>
+    <ResponseField name="name_dhivehi" type="string">
+      Project name in Dhivehi (optional)
+    </ResponseField>
+    <ResponseField name="current_scope" type="string">
+      Current project scope
+    </ResponseField>
+    <ResponseField name="location_code" type="string">
+      Location code
+    </ResponseField>
+    <ResponseField name="location_name" type="string">
+      Location name
+    </ResponseField>
+    <ResponseField name="status" type="object">
+      Project status information
+      <Expandable title="Properties">
+        <ResponseField name="name" type="string">Status name</ResponseField>
+        <ResponseField name="slug" type="string">Status identifier</ResponseField>
+        <ResponseField name="color" type="string">Status color code</ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="agency" type="object">
+      Implementing agency information
+      <Expandable title="Properties">
+        <ResponseField name="uuid" type="string">Agency UUID</ResponseField>
+        <ResponseField name="name" type="string">Agency name in English</ResponseField>
+        <ResponseField name="name_dv" type="string">Agency name in Dhivehi</ResponseField>
+        <ResponseField name="type" type="string">Agency type</ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "uuid": "3ef9825c-42c9-4e78-9670-f2cf3092972a",
+      "name_english": "Coastal Protection - ADh.Hangnaameedhoo",
+      "name_dhivehi": null,
+      "current_scope": null,
+      "location_code": "I01",
+      "location_name": "ADh. Hangnaameedhoo",
+      "status": {
+        "name": "Ongoing",
+        "slug": "ongoing",
+        "color": "#059669"
+      },
+      "agency": {
+        "uuid": "cf5c785b-b05e-4db6-b31f-d3f094e4d235",
+        "name": "High Commission of the Republic of Maldives in the Republic of India",
+        "name_dv": "އިންޑިޔާގައި ހުންނަ ދިވެހިރާއްޖޭގެ ހައިކޮމިޝަން",
+        "type": "Government"
+      }
+    }
+  ],
+  "links": {},
+  "meta": {}
+}
+```
+
+## Notes
+
+- Projects are sorted by name in ascending order
+- The response includes agency details without business area information
+- Location codes in the locations parameter are validated for accuracy 

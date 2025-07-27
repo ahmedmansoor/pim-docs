@@ -1,0 +1,109 @@
+---
+title: 'Get Atoll'
+description: 'Retrieve details of a specific atoll'
+---
+
+# Get Atoll Details
+
+Get detailed information about a specific atoll by its code, including its capital island and list of islands.
+
+## API Request
+
+<Card title="GET Atoll Detail" icon="map-location-dot">
+  ```bash
+  GET /api/v1/atolls/{code}
+  ```
+</Card>
+
+## Path Parameters
+
+| Parameter | Type | Description | Required |
+|-----------|------|-------------|----------|
+| code | String | The code of the atoll (e.g., "HA") | Yes |
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Atoll details
+  <Expandable title="Properties">
+    <ResponseField name="code" type="string">
+      Atoll code
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Atoll name in English
+    </ResponseField>
+    <ResponseField name="name_dv" type="string">
+      Atoll name in Dhivehi
+    </ResponseField>
+    <ResponseField name="capital_island" type="object">
+      Capital island information
+      <Expandable title="Properties">
+        <ResponseField name="atoll_code" type="string">Atoll code</ResponseField>
+        <ResponseField name="name" type="string">Island name in English</ResponseField>
+        <ResponseField name="name_dv" type="string">Island name in Dhivehi</ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="islands" type="array">
+      List of islands in the atoll
+      <Expandable title="Properties">
+        <ResponseField name="atoll_code" type="string">Atoll code</ResponseField>
+        <ResponseField name="name" type="string">Island name in English</ResponseField>
+        <ResponseField name="name_dv" type="string">Island name in Dhivehi</ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "code": "Th",
+    "name": "Thaa Atoll",
+    "name_dv": null,
+    "capital_island": {
+      "atoll_code": "Th",
+      "name": "Veymandoo",
+      "name_dv": "ވޭމަންޑޫ"
+    },
+    "islands": [
+      {
+        "atoll_code": "Th",
+        "name": "Burunee",
+        "name_dv": "ބުރުނީ"
+      },
+      {
+        "atoll_code": "Th",
+        "name": "Vilufushi",
+        "name_dv": "ވިލުފުށި"
+      }
+    ]
+  }
+}
+```
+
+## Error Responses
+
+### Atoll Not Found
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "not_found",
+    "message": "Atoll not found"
+  }
+}
+```
+
+## Usage Notes
+
+- The atoll code must be a valid atoll identifier
+- Response includes both the capital island and a list of all islands in the atoll
+- Island names are provided in both English and Dhivehi when available 

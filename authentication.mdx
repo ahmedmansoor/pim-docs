@@ -1,0 +1,79 @@
+---
+title: 'Authentication'
+description: 'Learn how to authenticate your API requests'
+---
+
+# Authentication
+
+The PIM API uses API key authentication. You need to include your API key in the Authorization header for all requests.
+
+## API Key
+
+Include your API key in the `Authorization` header:
+
+```bash
+Authorization: [api-key]
+```
+
+<Warning>
+Keep your API key secure and never share it publicly. If you believe your API key has been compromised, contact the PIM system administrators immediately.
+</Warning>
+
+## Example Request
+
+Here's an example of how to include the API key in your requests:
+
+```bash
+curl -X GET "https://pim.finance.gov.mv/api/v1/initiatives/projects" \
+     -H "Authorization: your-api-key-here"
+```
+
+## Error Responses
+
+If authentication fails, you'll receive one of these error responses:
+
+### Missing API Key
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "authentication_required",
+    "message": "Authentication is required. Please provide an API key."
+  }
+}
+```
+
+### Invalid API Key
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "invalid_api_key",
+    "message": "The provided API key is invalid."
+  }
+}
+```
+
+## Best Practices
+
+1. **Store Securely**: Store your API key in environment variables or secure configuration management systems.
+
+2. **Regular Rotation**: Rotate your API keys periodically for enhanced security.
+
+3. **Minimal Access**: Use API keys with the minimum required permissions for your use case.
+
+4. **Monitor Usage**: Regularly monitor API key usage for any suspicious activity.
+
+## Getting an API Key
+
+To obtain an API key:
+
+1. Contact the PIM system administrators
+2. Provide your use case and required access level
+3. Follow the provided instructions to securely receive your API key
+
+<Note>
+If you need to integrate the PIM API into your application, make sure to implement proper API key management and security measures.
+</Note> 

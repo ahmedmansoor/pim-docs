@@ -1,0 +1,80 @@
+---
+title: 'Get Initiative Function'
+description: 'Retrieve details of a specific initiative function'
+---
+
+# Get Initiative Function
+
+Get detailed information about a specific initiative function by its slug.
+
+## API Request
+
+<Card title="GET Initiative Function" icon="list-check">
+  ```bash
+  GET /api/v1/initiative-functions/{slug}
+  ```
+</Card>
+
+## Path Parameters
+
+| Parameter | Type | Description | Required |
+|-----------|------|-------------|----------|
+| slug | String | The slug identifier of the initiative function | Yes |
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Initiative function details
+  <Expandable title="Properties">
+    <ResponseField name="id" type="integer">
+      Unique identifier for the function
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Name of the initiative function
+    </ResponseField>
+    <ResponseField name="description" type="string">
+      Description of the function
+    </ResponseField>
+    <ResponseField name="slug" type="string">
+      Unique identifier slug
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "Function Name",
+    "description": "Description of the function",
+    "slug": "function-slug"
+  }
+}
+```
+
+## Error Responses
+
+### Function Not Found
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "not_found",
+    "message": "Initiative function not found"
+  }
+}
+```
+
+## Usage Notes
+
+- The slug parameter should match exactly with the slug returned from the list endpoint
+- Slugs are case-sensitive
+- Use this endpoint to get detailed information about a specific function type 

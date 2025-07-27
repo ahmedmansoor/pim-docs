@@ -1,0 +1,88 @@
+---
+title: 'Get Constituency'
+description: 'Retrieve details of a specific constituency'
+---
+
+# Get Constituency Details
+
+Get detailed information about a specific constituency by its UUID.
+
+<Note>
+Currently, constituencies and their islands are not actively maintained in the system.
+</Note>
+
+## API Request
+
+<Card title="GET Constituency Detail" icon="map-location-dot">
+  ```bash
+  GET /api/v1/constituencies/{uuid}
+  ```
+</Card>
+
+## Path Parameters
+
+| Parameter | Type | Description | Required |
+|-----------|------|-------------|----------|
+| uuid | String | The UUID of the constituency | Yes |
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Constituency details
+  <Expandable title="Properties">
+    <ResponseField name="uuid" type="string">
+      Unique identifier for the constituency
+    </ResponseField>
+    <ResponseField name="code" type="string">
+      Constituency code
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Constituency name in English
+    </ResponseField>
+    <ResponseField name="name_dv" type="string">
+      Constituency name in Dhivehi
+    </ResponseField>
+    <ResponseField name="islands" type="array">
+      List of islands in the constituency
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "uuid": "6d37361d-7be3-4bfc-9a5a-20e5e0a70b16",
+    "code": "A02",
+    "name": "Ihavandhoo Constituency",
+    "name_dv": "އިހަވަންދޫ ދާއިރާ",
+    "islands": []
+  }
+}
+```
+
+## Error Responses
+
+### Constituency Not Found
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "not_found",
+    "message": "Constituency not found"
+  }
+}
+```
+
+## Usage Notes
+
+- The UUID must be a valid constituency identifier
+- The islands array is currently empty as constituency-island relationships are not maintained
+- Use constituency codes when filtering other resources by constituency 
