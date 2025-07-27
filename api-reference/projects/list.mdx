@@ -5,6 +5,12 @@ api: 'GET /api/v1/projects'
 
 Returns a list of all projects.
 
+### Authorizations
+
+<ParamField header="Authorization" type="string" required>
+  Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
+</ParamField>
+
 ### Query Parameters
 
 <ParamField query="limit" type="integer">
@@ -33,48 +39,43 @@ Returns a list of all projects.
   List of projects
 </ResponseField>
 
-<ResponseField name="meta" type="object" required>
-  Pagination metadata
-</ResponseField>
-
 <ResponseExample>
 ```json
 {
-    "success": true,
-    "data": [
-        {
-            "uuid": "123",
-            "name_english": "Coastal Protection - ADh.Hangnaameedhoo",
-            "name_dhivehi": null,
-            "current_scope": null,
-            "current_scope_dv": null,
-            "location": {
-                "code": "I01",
-                "name": "ADh. Hangnaameedhoo",
-                "atoll_code": "ADh",
-                "atoll_code_dv": "އދ",
-                "atoll_name": "Alif Dhaal Atoll",
-                "atoll_name_dv": "އދ އަތޮޅު",
-                "island_code": "LD1023",
-                "island_name": "Hangnaameedhoo",
-                "island_name_dv": "ހަންޏާމީދޫ"
-            },
-            "status": {
-                "name": "Planned",
-                "slug": "planned",
-                "color": "#4f39f6"
-            },
-            "agency": {
-                "uuid": "456",
-                "name": "High Commission of the Republic of Maldives in the Republic of India",
-                "name_dv": "އިންޑިޔާގައި ހުންނަ ދިވެހިރާއްޖޭގެ ހައިކޮމިޝަން",
-                "type": "Government"
-            }
-        },
-        [...]
-    ],
-    "links": {},
-    "meta": {}
+  "success": true,
+  "data": [
+    {
+      "uuid": "123",
+      "name_english": "Coastal Protection - ADh.Hangnaameedhoo",
+      "name_dhivehi": null,
+      "current_scope": null,
+      "current_scope_dv": null,
+      "location": {
+        "code": "I01",
+        "name": "ADh. Hangnaameedhoo",
+        "atoll_code": "ADh",
+        "atoll_code_dv": "އދ",
+        "atoll_name": "Alif Dhaal Atoll",
+        "atoll_name_dv": "އދ އަތޮޅު",
+        "island_code": "LD1023",
+        "island_name": "Hangnaameedhoo",
+        "island_name_dv": "ހަންޏާމީދޫ"
+      },
+      "status": {
+        "name": "Planned",
+        "slug": "planned",
+        "color": "#4f39f6"
+      },
+      "agency": {
+        "uuid": "456",
+        "name": "High Commission of the Republic of Maldives in the Republic of India",
+        "name_dv": "އިންޑިޔާގައި ހުންނަ ދިވެހިރާއްޖޭގެ ހައިކޮމިޝަން",
+        "type": "Government"
+      }
+    }
+  ],
+  "links": {},
+  "meta": {}
 }
 ```
 </ResponseExample> 
