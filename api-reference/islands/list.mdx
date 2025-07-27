@@ -1,89 +1,44 @@
 ---
 title: 'List Islands'
-description: 'Retrieve a list of all islands'
+openapi: 'GET /api/v1/islands'
 ---
 
-# List Islands
+Returns a list of all islands.
 
-Retrieve a list of all islands with their atoll, location, and constituencies information.
+### Query Parameters
 
-## API Request
+<ParamField query="limit" type="integer">
+  The maximum number of results to return
+</ParamField>
 
-<Card title="GET All Islands" icon="map-location-dot">
-  ```bash
-  GET /api/v1/islands
-  ```
-</Card>
+<ParamField query="atoll_code" type="string">
+  Filter islands by atoll code
+</ParamField>
 
-## Response
+### Response
 
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="array">
-  Array of island objects
-  <Expandable title="Properties">
-    <ResponseField name="atoll_code" type="string">
-      Atoll code (e.g., "Th")
-    </ResponseField>
-    <ResponseField name="code" type="string">
-      Island code (e.g., "LD0422")
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Island name in English
-    </ResponseField>
-    <ResponseField name="name_dv" type="string">
-      Island name in Dhivehi
-    </ResponseField>
-    <ResponseField name="location_id" type="string">
-      Location identifier
-    </ResponseField>
-    <ResponseField name="atoll" type="object">
-      Atoll information
-      <Expandable title="Properties">
-        <ResponseField name="code" type="string">Atoll code</ResponseField>
-        <ResponseField name="name" type="string">Atoll name in English</ResponseField>
-        <ResponseField name="name_dv" type="string">Atoll name in Dhivehi</ResponseField>
-        <ResponseField name="location_id" type="string">Atoll location ID</ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
+<ResponseField name="data" type="array" required>
+  List of islands
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": [
     {
-      "atoll_code": "Th",
-      "code": "LD0422",
-      "name": "Kin'bidhoo",
-      "name_dv": "ކިނބިދޫ",
-      "location_id": "N12",
-      "atoll": {
-        "code": "Th",
-        "name": "Thaa Atoll",
-        "name_dv": "ތ އަތޮޅު",
-        "location_id": "N00"
-      }
+      "id": "123",
+      "name": "Dhidhdhoo",
+      "name_dv": "ދިއްދޫ",
+      "atoll_code": "HA",
+      "location_id": "A01",
+      "is_capital": true
     }
   ]
 }
 ```
-
-## Usage Notes
-
-- This endpoint returns all islands without pagination
-- Each island includes its associated atoll information
-- Island codes follow the format "LDxxxx" where xxxx is a unique number
-- Location IDs can be used to reference locations in other endpoints
-- Names are provided in both English and Dhivehi when available
-
-## Common Use Cases
-
-1. **Location Mapping**: Use this endpoint to get a complete list of islands and their location codes for mapping purposes.
-2. **Atoll Grouping**: Group islands by their atoll_code to organize them by administrative regions.
-3. **Location Validation**: Validate island codes and location IDs before using them in other API requests. 
+</ResponseExample> 

@@ -1,70 +1,39 @@
 ---
 title: 'List Constituencies'
-description: 'Retrieve a list of all constituencies'
+openapi: 'GET /api/v1/constituencies'
 ---
 
-# List Constituencies
+Returns a list of all constituencies.
 
-Retrieve a list of all constituencies with their islands.
+### Query Parameters
 
-<Note>
-Currently, constituencies and their islands are not actively maintained in the system.
-</Note>
+<ParamField query="limit" type="integer">
+  The maximum number of results to return
+</ParamField>
 
-## API Request
+### Response
 
-<Card title="GET All Constituencies" icon="map-location-dot">
-  ```bash
-  GET /api/v1/constituencies
-  ```
-</Card>
-
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="array">
-  Array of constituency objects
-  <Expandable title="Properties">
-    <ResponseField name="uuid" type="string">
-      Unique identifier for the constituency
-    </ResponseField>
-    <ResponseField name="code" type="string">
-      Constituency code
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Constituency name in English
-    </ResponseField>
-    <ResponseField name="name_dv" type="string">
-      Constituency name in Dhivehi
-    </ResponseField>
-    <ResponseField name="islands" type="array">
-      List of islands in the constituency
-    </ResponseField>
-  </Expandable>
+<ResponseField name="data" type="array" required>
+  List of constituencies
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": [
     {
-      "uuid": "6d37361d-7be3-4bfc-9a5a-20e5e0a70b16",
-      "code": "A02",
-      "name": "Ihavandhoo Constituency",
-      "name_dv": "އިހަވަންދޫ ދާއިރާ",
-      "islands": []
+      "id": "123",
+      "name": "Dhidhdhoo",
+      "name_dv": "ދިއްދޫ",
+      "atoll_code": "HA",
+      "location_id": "A01"
     }
   ]
 }
 ```
-
-## Usage Notes
-
-- This endpoint returns all constituencies without pagination
-- The islands array is currently empty as constituency-island relationships are not maintained
-- Use constituency codes when filtering other resources by constituency 
+</ResponseExample> 

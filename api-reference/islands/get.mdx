@@ -1,107 +1,43 @@
 ---
 title: 'Get Island'
-description: 'Retrieve details of a specific island'
+openapi: 'GET /api/v1/islands/{id}'
 ---
 
-# Get Island Details
+Returns details of a specific island.
 
-Get detailed information about a specific island using either its location ID or island code.
+### Path Parameters
 
-## API Request
+<ParamField path="id" type="string" required>
+  The island ID
+</ParamField>
 
-<Card title="GET Island Detail" icon="map-location-dot">
-  ```bash
-  GET /api/v1/islands/{identifier}
-  ```
-</Card>
+### Response
 
-## Path Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| identifier | String | Either the location_id (e.g., "A01") or the island code (e.g., "LD0422") | Yes |
-
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="object">
+<ResponseField name="data" type="object" required>
   Island details
-  <Expandable title="Properties">
-    <ResponseField name="island_code" type="string">
-      Island code (e.g., "LD0422")
-    </ResponseField>
-    <ResponseField name="location_id" type="string">
-      Location identifier
-    </ResponseField>
-    <ResponseField name="atoll_code" type="string">
-      Atoll code
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Island name in English
-    </ResponseField>
-    <ResponseField name="name_dv" type="string">
-      Island name in Dhivehi
-    </ResponseField>
-    <ResponseField name="atoll" type="object">
-      Atoll information
-      <Expandable title="Properties">
-        <ResponseField name="code" type="string">Atoll code</ResponseField>
-        <ResponseField name="name" type="string">Atoll name in English</ResponseField>
-        <ResponseField name="name_dv" type="string">Atoll name in Dhivehi</ResponseField>
-        <ResponseField name="location_id" type="string">Atoll location ID</ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": {
-    "island_code": "LD0422",
-    "location_id": "N12",
-    "atoll_code": "Th",
-    "name": "Kin'bidhoo",
-    "name_dv": "ކިނބިދޫ",
+    "id": "123",
+    "name": "Dhidhdhoo",
+    "name_dv": "ދިއްދޫ",
+    "atoll_code": "HA",
+    "location_id": "A01",
+    "is_capital": true,
     "atoll": {
-      "code": "Th",
-      "name": "Thaa Atoll",
-      "name_dv": "ތ އަތޮޅު",
-      "location_id": "N00"
+      "code": "HA",
+      "name": "Haa Alif Atoll",
+      "name_dv": "ހއ އަތޮޅު"
     }
   }
 }
 ```
-
-## Error Responses
-
-### Island Not Found
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "not_found",
-    "message": "Island not found"
-  }
-}
-```
-
-## Usage Notes
-
-- You can use either the location_id or island_code as the identifier
-- Location IDs are typically in the format "X00" where X is a letter
-- Island codes are in the format "LDxxxx" where xxxx is a unique number
-- Response includes associated atoll information
-- Names are provided in both English and Dhivehi when available
-
-## Common Use Cases
-
-1. **Location Details**: Get detailed information about a specific island location
-2. **Atoll Association**: Verify which atoll an island belongs to
-3. **Code Translation**: Convert between location IDs and island codes 
+</ResponseExample> 

@@ -1,88 +1,45 @@
 ---
 title: 'Get Constituency'
-description: 'Retrieve details of a specific constituency'
+openapi: 'GET /api/v1/constituencies/{id}'
 ---
 
-# Get Constituency Details
+Returns details of a specific constituency.
 
-Get detailed information about a specific constituency by its UUID.
+### Path Parameters
 
-<Note>
-Currently, constituencies and their islands are not actively maintained in the system.
-</Note>
+<ParamField path="id" type="string" required>
+  The constituency ID
+</ParamField>
 
-## API Request
+### Response
 
-<Card title="GET Constituency Detail" icon="map-location-dot">
-  ```bash
-  GET /api/v1/constituencies/{uuid}
-  ```
-</Card>
-
-## Path Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| uuid | String | The UUID of the constituency | Yes |
-
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="object">
+<ResponseField name="data" type="object" required>
   Constituency details
-  <Expandable title="Properties">
-    <ResponseField name="uuid" type="string">
-      Unique identifier for the constituency
-    </ResponseField>
-    <ResponseField name="code" type="string">
-      Constituency code
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Constituency name in English
-    </ResponseField>
-    <ResponseField name="name_dv" type="string">
-      Constituency name in Dhivehi
-    </ResponseField>
-    <ResponseField name="islands" type="array">
-      List of islands in the constituency
-    </ResponseField>
-  </Expandable>
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": {
-    "uuid": "6d37361d-7be3-4bfc-9a5a-20e5e0a70b16",
-    "code": "A02",
-    "name": "Ihavandhoo Constituency",
-    "name_dv": "އިހަވަންދޫ ދާއިރާ",
-    "islands": []
+    "id": "123",
+    "name": "Dhidhdhoo",
+    "name_dv": "ދިއްދޫ",
+    "atoll_code": "HA",
+    "location_id": "A01",
+    "islands": [
+      {
+        "id": "456",
+        "name": "Dhidhdhoo",
+        "name_dv": "ދިއްދޫ",
+        "atoll_code": "HA"
+      }
+    ]
   }
 }
 ```
-
-## Error Responses
-
-### Constituency Not Found
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "not_found",
-    "message": "Constituency not found"
-  }
-}
-```
-
-## Usage Notes
-
-- The UUID must be a valid constituency identifier
-- The islands array is currently empty as constituency-island relationships are not maintained
-- Use constituency codes when filtering other resources by constituency 
+</ResponseExample> 
