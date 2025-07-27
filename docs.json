@@ -18,51 +18,53 @@
       "method": "key"
     }
   },
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "introduction",
-        "authentication"
-      ]
-    },
-    {
-      "group": "Projects",
-      "pages": [
-        "api-reference/projects/list",
-        "api-reference/projects/get"
-      ]
-    },
-    {
-      "group": "Initiative Functions",
-      "pages": [
-        "api-reference/functions/list",
-        "api-reference/functions/get",
-        "api-reference/functions/initiatives"
-      ]
-    },
-    {
-      "group": "Contracts",
-      "pages": [
-        "api-reference/contracts/list",
-        "api-reference/contracts/get"
-      ]
-    },
-    {
-      "group": "Locations",
-      "pages": [
-        "api-reference/constituencies/list",
-        "api-reference/constituencies/get",
-        "api-reference/atolls/list",
-        "api-reference/atolls/get",
-        "api-reference/atolls/initiatives",
-        "api-reference/islands/list",
-        "api-reference/islands/get",
-        "api-reference/islands/initiatives",
-        "api-reference/locations/list"
-      ]
-    }
-  ],
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "introduction",
+          "authentication"
+        ]
+      },
+      {
+        "group": "Projects",
+        "pages": [
+          "api-reference/projects/list",
+          "api-reference/projects/get"
+        ]
+      },
+      {
+        "group": "Initiative Functions",
+        "pages": [
+          "api-reference/functions/list",
+          "api-reference/functions/get",
+          "api-reference/functions/initiatives"
+        ]
+      },
+      {
+        "group": "Contracts",
+        "pages": [
+          "api-reference/contracts/list",
+          "api-reference/contracts/get"
+        ]
+      },
+      {
+        "group": "Locations",
+        "pages": [
+          "api-reference/constituencies/list",
+          "api-reference/constituencies/get",
+          "api-reference/atolls/list",
+          "api-reference/atolls/get",
+          "api-reference/atolls/initiatives",
+          "api-reference/islands/list",
+          "api-reference/islands/get",
+          "api-reference/islands/initiatives",
+          "api-reference/locations/list"
+        ]
+      }
+    ]
+  },
   "footerSocials": {
     "website": "https://pim.finance.gov.mv"
   }
