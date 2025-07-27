@@ -50,16 +50,31 @@
         ]
       },
       {
-        "group": "Locations",
+        "group": "Constituencies",
         "pages": [
           "api-reference/constituencies/list",
-          "api-reference/constituencies/get",
+          "api-reference/constituencies/get"
+        ]
+      },
+      {
+        "group": "Atolls",
+        "pages": [
           "api-reference/atolls/list",
           "api-reference/atolls/get",
-          "api-reference/atolls/initiatives",
+          "api-reference/atolls/initiatives"
+        ]
+      },
+      {
+        "group": "Islands",
+        "pages": [
           "api-reference/islands/list",
           "api-reference/islands/get",
-          "api-reference/islands/initiatives",
+          "api-reference/islands/initiatives"
+        ]
+      },
+      {
+        "group": "Locations",
+        "pages": [
           "api-reference/locations/list"
         ]
       }
