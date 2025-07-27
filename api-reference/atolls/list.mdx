@@ -5,6 +5,16 @@ openapi: 'GET /api/v1/atolls'
 
 Returns a list of all atolls with their capital islands and locations.
 
+<RequestExample>
+  <Snippet path="/api/v1/atolls" method="get">
+    ```bash {{ title: 'cURL' }}
+    curl --request GET \
+      --url https://pim.finance.gov.mv/api/v1/atolls \
+      --header 'Authorization: Bearer <token>'
+    ```
+  </Snippet>
+</RequestExample>
+
 ### Query Parameters
 
 <ParamField query="limit" type="integer">

@@ -1,80 +1,48 @@
 ---
-title: 'Get Initiative Function'
-description: 'Retrieve details of a specific initiative function'
+title: 'Get Function'
+openapi: 'GET /api/v1/functions/{id}'
 ---
 
-# Get Initiative Function
+Returns details of a specific function.
 
-Get detailed information about a specific initiative function by its slug.
+<RequestExample>
+  <Snippet path="/api/v1/functions/{id}" method="get">
+    ```bash {{ title: 'cURL' }}
+    curl --request GET \
+      --url https://pim.finance.gov.mv/api/v1/functions/123 \
+      --header 'Authorization: Bearer <token>'
+    ```
+  </Snippet>
+</RequestExample>
 
-## API Request
+### Path Parameters
 
-<Card title="GET Initiative Function" icon="list-check">
-  ```bash
-  GET /api/v1/initiative-functions/{slug}
-  ```
-</Card>
+<ParamField path="id" type="string" required>
+  The function ID
+</ParamField>
 
-## Path Parameters
+### Response
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| slug | String | The slug identifier of the initiative function | Yes |
-
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="object">
-  Initiative function details
-  <Expandable title="Properties">
-    <ResponseField name="id" type="integer">
-      Unique identifier for the function
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Name of the initiative function
-    </ResponseField>
-    <ResponseField name="description" type="string">
-      Description of the function
-    </ResponseField>
-    <ResponseField name="slug" type="string">
-      Unique identifier slug
-    </ResponseField>
-  </Expandable>
+<ResponseField name="data" type="object" required>
+  Function details
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": {
-    "id": 1,
-    "name": "Function Name",
-    "description": "Description of the function",
-    "slug": "function-slug"
+    "id": "123",
+    "name": "Education",
+    "name_dv": "ތަޢުލީމު",
+    "code": "EDU",
+    "description": "Education related functions",
+    "initiatives_count": 45
   }
 }
 ```
-
-## Error Responses
-
-### Function Not Found
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "not_found",
-    "message": "Initiative function not found"
-  }
-}
-```
-
-## Usage Notes
-
-- The slug parameter should match exactly with the slug returned from the list endpoint
-- Slugs are case-sensitive
-- Use this endpoint to get detailed information about a specific function type 
+</ResponseExample> 

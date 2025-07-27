@@ -1,63 +1,49 @@
 ---
-title: 'List Initiative Functions'
-description: 'Retrieve a list of all initiative functions'
+title: 'List Functions'
+openapi: 'GET /api/v1/functions'
 ---
 
-# List Initiative Functions
+Returns a list of all functions.
 
-Retrieve a list of all available initiative functions.
+<RequestExample>
+  <Snippet path="/api/v1/functions" method="get">
+    ```bash {{ title: 'cURL' }}
+    curl --request GET \
+      --url https://pim.finance.gov.mv/api/v1/functions \
+      --header 'Authorization: Bearer <token>'
+    ```
+  </Snippet>
+</RequestExample>
 
-## API Request
+### Query Parameters
 
-<Card title="GET All Initiative Functions" icon="list-check">
-  ```bash
-  GET /api/v1/initiative-functions
-  ```
-</Card>
+<ParamField query="limit" type="integer">
+  The maximum number of results to return
+</ParamField>
 
-## Response
+### Response
 
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="array">
-  Array of initiative function objects
-  <Expandable title="Properties">
-    <ResponseField name="name" type="string">
-      Name of the initiative function
-    </ResponseField>
-    <ResponseField name="description" type="string">
-      Description of the initiative function
-    </ResponseField>
-    <ResponseField name="slug" type="string">
-      Unique identifier slug for the function
-    </ResponseField>
-  </Expandable>
+<ResponseField name="data" type="array" required>
+  List of functions
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": [
     {
-      "name": "Water Drainage System",
-      "description": "Infrastructure for managing and controlling water runoff",
-      "slug": "water-drainage-system"
-    },
-    {
-      "name": "Port",
-      "description": "Maritime facilities",
-      "slug": "port"
+      "id": "123",
+      "name": "Education",
+      "name_dv": "ތަޢުލީމު",
+      "code": "EDU",
+      "description": "Education related functions"
     }
   ]
 }
 ```
-
-## Usage Notes
-
-- This endpoint returns all available initiative functions without pagination
-- Functions are identified by their unique slugs which are used in other API endpoints
-- Use these function slugs when filtering projects by function type 
+</ResponseExample> 

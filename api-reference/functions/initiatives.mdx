@@ -1,117 +1,72 @@
 ---
 title: 'List Function Initiatives'
-description: 'Retrieve initiatives for a specific function'
+openapi: 'GET /api/v1/functions/{id}/initiatives'
 ---
 
-# List Function Initiatives
+Returns a list of all initiatives for a specific function.
 
-Retrieve a paginated list of initiatives for a specific initiative function, sorted by name.
+<RequestExample>
+  <Snippet path="/api/v1/functions/{id}/initiatives" method="get">
+    ```bash {{ title: 'cURL' }}
+    curl --request GET \
+      --url https://pim.finance.gov.mv/api/v1/functions/123/initiatives \
+      --header 'Authorization: Bearer <token>'
+    ```
+  </Snippet>
+</RequestExample>
 
-## API Request
+### Path Parameters
 
-<Card title="GET Function Initiatives" icon="list-check">
-  ```bash
-  GET /api/v1/initiative-functions/{slug}/initiatives
-  ```
-</Card>
+<ParamField path="id" type="string" required>
+  The function ID
+</ParamField>
 
-## Path Parameters
+### Query Parameters
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| slug | String | The unique slug of the initiative function | Yes |
+<ParamField query="limit" type="integer">
+  The maximum number of results to return
+</ParamField>
 
-## Query Parameters
+<ParamField query="offset" type="integer">
+  Number of results to skip for pagination
+</ParamField>
 
-| Parameter | Type | Description | Required | Default | Range |
-|-----------|------|-------------|----------|---------|-------|
-| page | Integer | The page number to retrieve | No | 1 | > 0 |
-| per_page | Integer | Number of items per page | No | 20 | 1 - 50 |
+### Response
 
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="array">
-  Array of initiative objects
-  <Expandable title="Properties">
-    <ResponseField name="uuid" type="string">
-      Unique identifier for the initiative
-    </ResponseField>
-    <ResponseField name="name_english" type="string">
-      Initiative name in English
-    </ResponseField>
-    <ResponseField name="name_dhivehi" type="string">
-      Initiative name in Dhivehi
-    </ResponseField>
-    <ResponseField name="current_scope" type="string">
-      Current initiative scope
-    </ResponseField>
-    <ResponseField name="location" type="object">
-      Location information
-      <Expandable title="Properties">
-        <ResponseField name="code" type="string">Location code</ResponseField>
-        <ResponseField name="name" type="string">Location name</ResponseField>
-        <ResponseField name="island_code" type="string">Island code</ResponseField>
-        <ResponseField name="atoll_code" type="string">Atoll code</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="status" type="object">
-      Status information
-      <Expandable title="Properties">
-        <ResponseField name="name" type="string">Status name</ResponseField>
-        <ResponseField name="slug" type="string">Status identifier</ResponseField>
-        <ResponseField name="color" type="string">Status color code</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="agency" type="object">
-      Agency information
-      <Expandable title="Properties">
-        <ResponseField name="uuid" type="string">Agency UUID</ResponseField>
-        <ResponseField name="name" type="string">Agency name in English</ResponseField>
-        <ResponseField name="name_dv" type="string">Agency name in Dhivehi</ResponseField>
-        <ResponseField name="type" type="string">Agency type</ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
+<ResponseField name="data" type="array" required>
+  List of initiatives for the function
 </ResponseField>
 
-### Example Response
+<ResponseField name="meta" type="object" required>
+  Pagination metadata
+</ResponseField>
 
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": [
     {
-      "uuid": "b038cf21-5852-4ecc-b223-265efba32d65",
-      "name_english": "Construction of Police Accommodation - Fuvamulah City",
-      "name_dhivehi": null,
-      "current_scope": null,
-      "location_code": "R01",
-      "location_name": "Fuvahmulah City",
-      "status": {
-        "name": "Ongoing",
-        "slug": "ongoing",
-        "color": "#059669"
-      },
-      "agency": {
-        "uuid": "f2df3458-2dcc-4c03-8d58-c72aac4f4601",
-        "name": "Embassy of the Republic of Maldives in Cairo, Egypt",
-        "name_dv": "މިސްރުގައި ހުންނަ ދިވެހިރާއްޖޭގެ އެމްބަސީ",
-        "type": "Government"
+      "id": "123",
+      "title": "School Development Project",
+      "description": "Development of school facilities",
+      "status": "ongoing",
+      "location": {
+        "atoll_code": "HA",
+        "island_name": "Dhidhdhoo",
+        "island_name_dv": "ދިއްދޫ"
       }
     }
   ],
-  "links": {},
-  "meta": {}
+  "meta": {
+    "total": 45,
+    "limit": 10,
+    "offset": 0
+  }
 }
 ```
-
-## Usage Notes
-
-- Initiatives are sorted by name in ascending order
-- Use pagination parameters to navigate through large result sets
-- The function slug must exist in the system
-- Results include detailed location and agency information for each initiative 
+</ResponseExample> 

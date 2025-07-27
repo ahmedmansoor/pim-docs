@@ -1,192 +1,81 @@
 ---
 title: 'Get Contract'
-description: 'Retrieve details of a specific contract'
+openapi: 'GET /api/v1/contracts/{id}'
 ---
 
-# Get Contract Details
+Returns details of a specific contract.
 
-Get detailed information about a specific contract by its UUID.
+<RequestExample>
+  <Snippet path="/api/v1/contracts/{id}" method="get">
+    ```bash {{ title: 'cURL' }}
+    curl --request GET \
+      --url https://pim.finance.gov.mv/api/v1/contracts/123 \
+      --header 'Authorization: Bearer <token>'
+    ```
+  </Snippet>
+</RequestExample>
 
-## API Request
+### Path Parameters
 
-<Card title="GET Contract Detail" icon="file-contract">
-  ```bash
-  GET /api/v1/contracts/{uuid}
-  ```
-</Card>
+<ParamField path="id" type="string" required>
+  The contract ID
+</ParamField>
 
-## Path Parameters
+### Response
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| uuid | String | The UUID of the contract | Yes |
-
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="object">
+<ResponseField name="data" type="object" required>
   Contract details
-  <Expandable title="Properties">
-    <ResponseField name="uuid" type="string">
-      Unique identifier for the contract
-    </ResponseField>
-    <ResponseField name="contract_number" type="string">
-      Contract reference number
-    </ResponseField>
-    <ResponseField name="contract_name" type="string">
-      Contract name in English
-    </ResponseField>
-    <ResponseField name="contract_name_dv" type="string">
-      Contract name in Dhivehi
-    </ResponseField>
-    <ResponseField name="current_scope" type="string">
-      Current contract scope in English
-    </ResponseField>
-    <ResponseField name="current_scope_dv" type="string">
-      Current contract scope in Dhivehi
-    </ResponseField>
-    <ResponseField name="status" type="string">
-      Contract status
-    </ResponseField>
-    <ResponseField name="current_contract_value" type="string">
-      Current contract value
-    </ResponseField>
-    <ResponseField name="physical_progress_percentage" type="string">
-      Physical progress percentage
-    </ResponseField>
-    <ResponseField name="financial_progress_percentage" type="string">
-      Financial progress percentage
-    </ResponseField>
-    <ResponseField name="commencement_date" type="string">
-      Contract start date
-    </ResponseField>
-    <ResponseField name="scheduled_completion_date" type="string">
-      Scheduled completion date
-    </ResponseField>
-    <ResponseField name="actual_completion_date" type="string">
-      Actual completion date
-    </ResponseField>
-    <ResponseField name="initiatives" type="array">
-      Associated initiatives
-      <Expandable title="Properties">
-        <ResponseField name="uuid" type="string">Initiative UUID</ResponseField>
-        <ResponseField name="name_english" type="string">Initiative name in English</ResponseField>
-        <ResponseField name="name_dhivehi" type="string">Initiative name in Dhivehi</ResponseField>
-        <ResponseField name="current_scope" type="string">Current initiative scope</ResponseField>
-        <ResponseField name="location" type="object">Location information</ResponseField>
-        <ResponseField name="status" type="object">Status information</ResponseField>
-        <ResponseField name="agency" type="object">Agency information</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="project_schedules" type="array">
-      Project schedules
-      <Expandable title="Properties">
-        <ResponseField name="actual_start_date" type="string">Actual start date</ResponseField>
-        <ResponseField name="actual_end_date" type="string">Actual end date</ResponseField>
-        <ResponseField name="scheduled_works" type="array">
-          Scheduled work items
-          <Expandable title="Properties">
-            <ResponseField name="title" type="string">Work title</ResponseField>
-            <ResponseField name="title_dv" type="string">Work title in Dhivehi</ResponseField>
-            <ResponseField name="description" type="string">Work description</ResponseField>
-            <ResponseField name="description_dv" type="string">Work description in Dhivehi</ResponseField>
-            <ResponseField name="amount" type="string">Work amount</ResponseField>
-            <ResponseField name="physical_progress_percentage" type="string">Physical progress</ResponseField>
-            <ResponseField name="financial_progress_percentage" type="string">Financial progress</ResponseField>
-            <ResponseField name="wbs_elements" type="array">Work breakdown elements</ResponseField>
-          </Expandable>
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": {
-    "uuid": "3c750837-ee1d-4810-bcb2-3bf70183735c",
-    "contract_number": "102245",
-    "contract_name": "School Building and Development",
-    "contract_name_dv": null,
-    "current_scope": "Changed to 700 people capacity",
-    "current_scope_dv": null,
-    "status": "Retention Stage",
-    "current_contract_value": "1000000.00",
-    "physical_progress_percentage": "1.05",
-    "financial_progress_percentage": "0.95",
-    "commencement_date": "2025-01-12T00:00:00.000000Z",
-    "scheduled_completion_date": "2027-10-07T00:00:00.000000Z",
-    "actual_completion_date": null,
-    "initiatives": [
+    "id": "123",
+    "title": "Harbor Development Contract",
+    "description": "Contract for development of harbor facilities",
+    "status": "active",
+    "initiative": {
+      "id": "456",
+      "title": "Harbor Development Project"
+    },
+    "contractor": {
+      "id": "789",
+      "name": "Construction Co Ltd",
+      "registration_number": "C-1234/2020"
+    },
+    "value": {
+      "amount": 1500000,
+      "currency": "MVR"
+    },
+    "dates": {
+      "start": "2023-01-01",
+      "end": "2024-01-01"
+    },
+    "progress": {
+      "physical": 45,
+      "financial": 40
+    },
+    "schedules": [
       {
-        "uuid": "dd8c34c0-cfdf-4d93-9547-f86281eb118e",
-        "name_english": "Const. of MNU Student Accommodation Block - GDh.Thinadhoo",
-        "name_dhivehi": null,
-        "current_scope": null,
-        "location": {
-          "code": "Q10",
-          "name": "GDh. Thinadhoo",
-          "island_code": "LD0717",
-          "atoll_code": "GDh"
-        },
-        "status": {
-          "name": "Ongoing – On Schedule",
-          "slug": "ongoing-on-schedule",
-          "color": "#00968a"
-        },
-        "agency": {
-          "uuid": "b99e5d84-8f6e-46ac-8aa9-f0031c030888",
-          "name": "LH.Atoll Education Centre",
-          "name_dv": "ޅ.އަތޮޅު ތަޢުލީމީ މަރުކަޒު",
-          "type": "Government"
-        }
-      }
-    ],
-    "project_schedules": [
+        "title": "Foundation Work",
+        "progress": 100,
+        "start_date": "2023-01-01",
+        "end_date": "2023-03-01"
+      },
       {
-        "actual_start_date": null,
-        "actual_end_date": null,
-        "scheduled_works": [
-          {
-            "title": "Contractual Requirements",
-            "title_dv": null,
-            "description": null,
-            "description_dv": null,
-            "amount": "94975.20",
-            "physical_progress_percentage": "11.06",
-            "financial_progress_percentage": "10.00",
-            "wbs_elements": []
-          }
-        ]
+        "title": "Structure Work",
+        "progress": 50,
+        "start_date": "2023-03-02",
+        "end_date": "2023-08-01"
       }
     ]
   }
 }
 ```
-
-## Error Responses
-
-### Contract Not Found
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "not_found",
-    "message": "Contract not found"
-  }
-}
-```
-
-## Usage Notes
-
-- The UUID must be a valid contract identifier
-- Response includes detailed information about associated initiatives and project schedules
-- All dates are returned in ISO 8601 format with timezone information
-- Progress percentages are returned as strings to maintain precision 
+</ResponseExample> 

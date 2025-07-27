@@ -1,150 +1,79 @@
 ---
 title: 'Get Project'
-description: 'Retrieve details of a specific project'
+openapi: 'GET /api/v1/projects/{id}'
 ---
 
-# Get Project Details
+Returns details of a specific project.
 
-Get detailed information about a specific project by its UUID.
+<RequestExample>
+  <Snippet path="/api/v1/projects/{id}" method="get">
+    ```bash {{ title: 'cURL' }}
+    curl --request GET \
+      --url https://pim.finance.gov.mv/api/v1/projects/123 \
+      --header 'Authorization: Bearer <token>'
+    ```
+  </Snippet>
+</RequestExample>
 
-## API Request
+### Path Parameters
 
-<Card title="GET Project Detail" icon="building">
-  ```bash
-  GET /api/v1/initiatives/projects/{uuid}
-  ```
-</Card>
+<ParamField path="id" type="string" required>
+  The project ID
+</ParamField>
 
-## Path Parameters
+### Response
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| uuid | String | The UUID of the project | Yes |
-
-## Response
-
-<ResponseField name="success" type="boolean">
+<ResponseField name="success" type="boolean" required>
   Indicates if the request was successful
 </ResponseField>
 
-<ResponseField name="data" type="object">
+<ResponseField name="data" type="object" required>
   Project details
-  <Expandable title="Properties">
-    <ResponseField name="uuid" type="string">
-      Unique identifier for the project
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Project name in English
-    </ResponseField>
-    <ResponseField name="name_dv" type="string">
-      Project name in Dhivehi
-    </ResponseField>
-    <ResponseField name="function" type="string">
-      Project function
-    </ResponseField>
-    <ResponseField name="agency" type="object">
-      Agency information
-      <Expandable title="Properties">
-        <ResponseField name="name" type="string">Agency name in English</ResponseField>
-        <ResponseField name="name_dv" type="string">Agency name in Dhivehi</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="project" type="object">
-      Project details
-      <Expandable title="Properties">
-        <ResponseField name="description" type="string">Project description</ResponseField>
-        <ResponseField name="start_date" type="string">Project start date</ResponseField>
-        <ResponseField name="end_date" type="string">Project end date</ResponseField>
-        <ResponseField name="locations" type="array">Project locations</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="status" type="object">
-      Project status
-      <Expandable title="Properties">
-        <ResponseField name="name" type="string">Status name</ResponseField>
-        <ResponseField name="slug" type="string">Status identifier</ResponseField>
-        <ResponseField name="color" type="string">Status color code</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="contracts" type="array">
-      Project contracts
-      <Expandable title="Properties">
-        <ResponseField name="uuid" type="string">Contract UUID</ResponseField>
-        <ResponseField name="contract_number" type="string">Contract number</ResponseField>
-        <ResponseField name="contract_name" type="string">Contract name</ResponseField>
-        <ResponseField name="vendor" type="object">Vendor information</ResponseField>
-        <ResponseField name="current_scope" type="string">Current contract scope</ResponseField>
-        <ResponseField name="commencement_date" type="string">Contract start date</ResponseField>
-        <ResponseField name="scheduled_completion_date" type="string">Scheduled completion date</ResponseField>
-        <ResponseField name="actual_completion_date" type="string">Actual completion date</ResponseField>
-        <ResponseField name="status" type="string">Contract status</ResponseField>
-        <ResponseField name="current_contract_value" type="number">Current contract value</ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="phases" type="array">
-      Project phases
-    </ResponseField>
-    <ResponseField name="total_contracted_amount" type="number">
-      Total contracted amount
-    </ResponseField>
-    <ResponseField name="total_claimed_amount" type="number">
-      Total claimed amount
-    </ResponseField>
-    <ResponseField name="overall_physical_progress_percent" type="number">
-      Overall physical progress percentage
-    </ResponseField>
-    <ResponseField name="overall_financial_progress_percent" type="number">
-      Overall financial progress percentage
-    </ResponseField>
-  </Expandable>
 </ResponseField>
 
-### Example Response
-
+<ResponseExample>
 ```json
 {
   "success": true,
   "data": {
-    "uuid": "2f447b7a-2ae1-4966-8cb0-18295d9e7986",
-    "name": "Const. of School 12 Classroom - HDh.Vaikaradhoo",
-    "name_dv": null,
-    "function": "Coastal protection",
-    "agency": {
-      "name": "Gan Regional Hospital",
-      "name_dv": "ގަން ރީޖަނަލް ހޮސްޕިޓަލް"
+    "id": "123",
+    "title": "Harbor Development Project",
+    "description": "Development of harbor facilities",
+    "status": "ongoing",
+    "location": {
+      "atoll_code": "HA",
+      "island_name": "Dhidhdhoo",
+      "island_name_dv": "ދިއްދޫ"
     },
-    "project": {
-      "description": "Const. of School 12 Classroom - HDh.Vaikaradhoo",
-      "start_date": "1000-01-01T00:00:00.000000Z",
-      "end_date": null,
-      "locations": []
+    "budget": {
+      "amount": 1500000,
+      "currency": "MVR"
     },
-    "status": {
-      "name": "Ongoing",
-      "slug": "ongoing",
-      "color": "#059669"
+    "progress": {
+      "physical": 45,
+      "financial": 40
+    },
+    "dates": {
+      "start": "2023-01-01",
+      "estimated_completion": "2024-01-01"
     },
     "contracts": [
       {
-        "uuid": "08380aa4-8d76-40f2-bdcc-c70b98dfbc3f",
-        "contract_number": "2025/CNT/45/404",
-        "contract_name": "Contract for Development of School – 8 Classrooms & Multipurpose Hall",
-        "vendor": {
-          "name": "Road Development Corporation Limited"
-        },
-        "current_scope": null,
-        "commencement_date": "2025-03-01T00:00:00.000000Z",
-        "scheduled_completion_date": "2026-01-08T00:00:00.000000Z",
-        "actual_completion_date": null,
-        "status": "Terminated",
-        "current_contract_value": 9800000
+        "id": "456",
+        "title": "Harbor Construction Phase 1",
+        "status": "active",
+        "value": {
+          "amount": 750000,
+          "currency": "MVR"
+        }
       }
     ],
-    "phases": [],
-    "total_contracted_amount": 9800000,
-    "total_claimed_amount": 343166.5,
-    "overall_physical_progress_percent": 20.479495314285714,
-    "overall_financial_progress_percent": 3.5
+    "implementing_agency": {
+      "id": "789",
+      "name": "Ministry of National Planning",
+      "name_dv": "ނޭޝަނަލް ޕްލޭނިންގ މިނިސްޓްރީ"
+    }
   }
 }
-``` 
+```
+</ResponseExample> 
