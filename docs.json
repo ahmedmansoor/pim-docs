@@ -122,6 +122,7 @@
       "anchors": [
         {
           "anchor": "PIMs",
+          "icon": "link",
           "href": "https://pim.finance.gov.mv"
         }
       ]
