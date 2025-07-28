@@ -1,68 +1,123 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "theme": "maple",
+  "name": "PIM Guide",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#ff6900",
+    "light": "#ff8905",
+    "dark": "#f54900"
+  },
+  "api": {
+    "baseUrl": "https://pim.finance.gov.mv/api/v1",
+    "auth": {
+      "method": "bearer"
+    },
+    "playground": {
+      "mode": "simple"
+    },
+    "api": "/api-reference/api.json"
+  },
+  "appearance": {
+    "default": "light",
+    "theme": "system"
+  },
+  "topbarLinks": [
+    {
+      "name": "Documentation",
+      "url": "https://pim.finance.gov.mv/docs"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://pim.finance.gov.mv"
+  },
   "navigation": {
-    "tabs": [
+    "primary": {
+      "type": "button",
+      "label": "PIMs",
+      "href": "https://pim.finance.gov.mv"
+    },
+    "dropdowns": [
       {
-        "tab": "Guides",
-        "groups": [
+        "dropdown": "API Reference",
+        "icon": "square-terminal",
+        "pages": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": ["introduction", "authentication"]
+          },
+          {
+            "group": "Core Resources",
+            "icon": "building",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              {
+                "group": "Projects",
+                "icon": "folder",
+                "pages": [
+                  "api-reference/projects/list",
+                  "api-reference/projects/get"
+                ]
+              },
+              {
+                "group": "Initiative Functions",
+                "icon": "list-check",
+                "pages": [
+                  "api-reference/functions/list",
+                  "api-reference/functions/get",
+                  "api-reference/functions/initiatives"
+                ]
+              },
+              {
+                "group": "Contracts",
+                "icon": "file-contract",
+                "pages": [
+                  "api-reference/contracts/list",
+                  "api-reference/contracts/get"
+                ]
+              }
             ]
           },
           {
-            "group": "Customization",
+            "group": "Location Resources",
+            "icon": "map",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              {
+                "group": "Constituencies",
+                "icon": "landmark",
+                "pages": [
+                  "api-reference/constituencies/list",
+                  "api-reference/constituencies/get"
+                ]
+              },
+              {
+                "group": "Atolls",
+                "icon": "water",
+                "pages": [
+                  "api-reference/atolls/list",
+                  "api-reference/atolls/get",
+                  "api-reference/atolls/initiatives"
+                ]
+              },
+              {
+                "group": "Islands",
+                "icon": "island-tropical",
+                "pages": [
+                  "api-reference/islands/list",
+                  "api-reference/islands/get",
+                  "api-reference/islands/initiatives"
+                ]
+              },
+              {
+                "group": "Locations",
+                "icon": "location-dot",
+                "pages": ["api-reference/locations/list"]
+              }
             ]
           }
         ]
@@ -71,45 +126,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "PIMs",
+          "icon": "chart-line",
+          "href": "https://pim.finance.gov.mv"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+  "footerSocials": {
+    "website": "https://pim.finance.gov.mv"
   }
 }
