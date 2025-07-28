@@ -37,86 +37,102 @@
     "url": "https://pim.finance.gov.mv"
   },
   "navigation": {
-    "groups": [
+    "pages": [
+      "introduction",
+      "authentication"
+    ],
+    "dropdowns": [
       {
-        "group": "Getting Started",
-        "icon": "book-open",
-        "pages": [
-          "introduction",
-          "authentication"
-        ]
-      },
-      {
-        "group": "Core Resources",
-        "icon": "building",
+        "dropdown": "API Reference",
+        "icon": "square-terminal",
         "pages": [
           {
-            "group": "Projects",
-            "icon": "folder",
+            "group": "Core Resources",
+            "icon": "building",
             "pages": [
-              "api-reference/projects/list",
-              "api-reference/projects/get"
+              {
+                "group": "Projects",
+                "icon": "folder",
+                "pages": [
+                  "api-reference/projects/list",
+                  "api-reference/projects/get"
+                ]
+              },
+              {
+                "group": "Initiative Functions",
+                "icon": "list-check",
+                "pages": [
+                  "api-reference/functions/list",
+                  "api-reference/functions/get",
+                  "api-reference/functions/initiatives"
+                ]
+              },
+              {
+                "group": "Contracts",
+                "icon": "file-contract",
+                "pages": [
+                  "api-reference/contracts/list",
+                  "api-reference/contracts/get"
+                ]
+              }
             ]
           },
           {
-            "group": "Initiative Functions",
-            "icon": "list-check",
+            "group": "Location Resources",
+            "icon": "map",
             "pages": [
-              "api-reference/functions/list",
-              "api-reference/functions/get",
-              "api-reference/functions/initiatives"
-            ]
-          },
-          {
-            "group": "Contracts",
-            "icon": "file-contract",
-            "pages": [
-              "api-reference/contracts/list",
-              "api-reference/contracts/get"
-            ]
-          }
-        ]
-      },
-      {
-        "group": "Location Resources",
-        "icon": "map",
-        "pages": [
-          {
-            "group": "Constituencies",
-            "icon": "landmark",
-            "pages": [
-              "api-reference/constituencies/list",
-              "api-reference/constituencies/get"
-            ]
-          },
-          {
-            "group": "Atolls",
-            "icon": "water",
-            "pages": [
-              "api-reference/atolls/list",
-              "api-reference/atolls/get",
-              "api-reference/atolls/initiatives"
-            ]
-          },
-          {
-            "group": "Islands",
-            "icon": "island-tropical",
-            "pages": [
-              "api-reference/islands/list",
-              "api-reference/islands/get",
-              "api-reference/islands/initiatives"
-            ]
-          },
-          {
-            "group": "Locations",
-            "icon": "location-dot",
-            "pages": [
-              "api-reference/locations/list"
+              {
+                "group": "Constituencies",
+                "icon": "landmark",
+                "pages": [
+                  "api-reference/constituencies/list",
+                  "api-reference/constituencies/get"
+                ]
+              },
+              {
+                "group": "Atolls",
+                "icon": "water",
+                "pages": [
+                  "api-reference/atolls/list",
+                  "api-reference/atolls/get",
+                  "api-reference/atolls/initiatives"
+                ]
+              },
+              {
+                "group": "Islands",
+                "icon": "island-tropical",
+                "pages": [
+                  "api-reference/islands/list",
+                  "api-reference/islands/get",
+                  "api-reference/islands/initiatives"
+                ]
+              },
+              {
+                "group": "Locations",
+                "icon": "location-dot",
+                "pages": [
+                  "api-reference/locations/list"
+                ]
+              }
             ]
           }
         ]
       }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "PIM Dashboard",
+          "icon": "chart-line",
+          "href": "https://pim.finance.gov.mv"
+        },
+        {
+          "anchor": "Get Started",
+          "icon": "rocket",
+          "href": "https://pim.finance.gov.mv/docs"
+        }
+      ]
+    }
   },
   "footerSocials": {
     "website": "https://pim.finance.gov.mv"
