@@ -37,6 +37,15 @@
     "url": "https://pim.finance.gov.mv"
   },
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "PIMs",
+          "icon": "chart-line",
+          "href": "https://pim.finance.gov.mv"
+        }
+      ]
+    },
     "pages": [
       "introduction",
       "authentication"
