@@ -22,6 +22,20 @@
     },
     "api": "/api-reference/api.json"
   },
+  "appearance": {
+    "default": "light",
+    "theme": "system"
+  },
+  "topbarLinks": [
+    {
+      "name": "Documentation",
+      "url": "https://pim.finance.gov.mv/docs"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://pim.finance.gov.mv"
+  },
   "navigation": {
     "groups": [
       {
