@@ -45,10 +45,7 @@
           {
             "group": "Getting Started",
             "icon": "rocket",
-            "pages": [
-              "introduction",
-              "authentication"
-            ]
+            "pages": ["introduction", "authentication"]
           },
           {
             "group": "Core Resources",
@@ -114,24 +111,23 @@
               {
                 "group": "Locations",
                 "icon": "location-dot",
-                "pages": [
-                  "api-reference/locations/list"
-                ]
+                "pages": ["api-reference/locations/list"]
               }
             ]
           }
         ]
       }
     ],
-    "anchors": [
-      {
-        "anchor": "PIMs",
-        "icon": "chart-line",
-        "href": "https://pim.finance.gov.mv"
-      }
-    ]
+    "global": {
+      "anchors": [
+        {
+          "anchor": "PIMs",
+          "href": "https://pim.finance.gov.mv"
+        }
+      ]
+    }
   },
   "footerSocials": {
     "website": "https://pim.finance.gov.mv"
   }
-} 
+}
