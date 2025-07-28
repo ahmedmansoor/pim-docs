@@ -8,9 +8,9 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#00bd7d",
-    "light": "#00d492",
-    "dark": "#009865"
+    "primary": "#ff6900",
+    "light": "#ff8905",
+    "dark": "#f54900"
   },
   "api": {
     "baseUrl": "https://pim.finance.gov.mv/api/v1",
