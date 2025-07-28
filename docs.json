@@ -117,16 +117,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "PIMs",
-          "icon": "book-open-cover",
-          "href": "https://pim.finance.gov.mv"
-        }
-      ]
-    }
+    ]
   },
   "navbar": {
     "primary": {
