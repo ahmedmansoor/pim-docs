@@ -122,6 +122,13 @@
           }
         ]
       }
+    ],
+    "anchors": [
+      {
+        "anchor": "PIMs",
+        "icon": "chart-line",
+        "href": "https://pim.finance.gov.mv"
+      }
     ]
   },
   "footerSocials": {
