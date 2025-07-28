@@ -7,11 +7,6 @@
     "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#3B82F6",
-    "light": "#60A5FA",
-    "dark": "#2563EB"
-  },
   "api": {
     "baseUrl": "https://pim.finance.gov.mv/api/v1",
     "auth": {
