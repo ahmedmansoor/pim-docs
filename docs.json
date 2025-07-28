@@ -118,21 +118,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "PIM Dashboard",
-          "icon": "chart-line",
-          "href": "https://pim.finance.gov.mv"
-        },
-        {
-          "anchor": "Get Started",
-          "icon": "rocket",
-          "href": "https://pim.finance.gov.mv/docs"
-        }
-      ]
-    }
+    ]
   },
   "footerSocials": {
     "website": "https://pim.finance.gov.mv"
