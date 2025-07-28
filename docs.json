@@ -37,11 +37,6 @@
     "url": "https://pim.finance.gov.mv"
   },
   "navigation": {
-    "primary": {
-      "type": "button",
-      "label": "PIMs",
-      "href": "https://pim.finance.gov.mv"
-    },
     "dropdowns": [
       {
         "dropdown": "API Reference",
@@ -127,10 +122,17 @@
       "anchors": [
         {
           "anchor": "PIMs",
-          "icon": "chart-line",
+          "icon": "book-open-cover",
           "href": "https://pim.finance.gov.mv"
         }
       ]
+    }
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "PIMs",
+      "href": "https://pim.finance.gov.mv"
     }
   },
   "footerSocials": {
