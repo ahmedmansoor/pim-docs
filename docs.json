@@ -10,7 +10,7 @@
   "colors": {
     "primary": "#a65134",
     "light": "#a65134",
-    "dark": "#e95809"
+    "dark": "#e1550d"
   },
   "api": {
     "baseUrl": "https://pim.finance.gov.mv/api/v1",
